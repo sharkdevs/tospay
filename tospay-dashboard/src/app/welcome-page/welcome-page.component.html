@@ -1,0 +1,118 @@
+<div class="content" role="main">
+  <section class="welcome-lead">
+    <p>Welcome Moses</p>
+  </section>
+
+  <section class="content-main">
+    
+    <section class="content-table">
+      <h4 class="section-title">
+        Recent Transactions
+      </h4>
+      <div class="divider"></div>
+      
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef> Status
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element"><span class="dot"></span> {{element.status}} </mat-cell>
+  </ng-container>
+<ng-container matColumnDef="date">
+  <mat-header-cell *matHeaderCellDef> Date
+  </mat-header-cell>
+  <mat-cell *matCellDef="let element"> {{element.date.day  }}   <span class="time">{{element.date.time}}</span> </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="account">
+  <mat-header-cell *matHeaderCellDef> Account
+  </mat-header-cell>
+  <mat-cell *matCellDef="let element"> <span class="initials">{{element.account.charAt(0)}}</span> {{element.account}} </mat-cell>
+</ng-container> 
+<ng-container matColumnDef="amount">
+  <mat-header-cell *matHeaderCellDef> Amount
+  </mat-header-cell>
+  <mat-cell *matCellDef="let element"> {{element.amount | currency: '+'}} USD </mat-cell>
+</ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+    </section>
+    
+    <aside class="content-aside">
+      <section class="profile-completion">
+        <h4 class="section-title">
+          Profile Completion
+        </h4>
+        <div class="divider"></div>
+        
+        <div class="progress">
+          <span class="percentage">65%</span>
+          <mat-progress-bar mode="determinate" value="65"></mat-progress-bar>
+        </div>
+        <div class="card-container">
+          <div class="card">
+            <div class="card-content">
+              <h5> Link a Payment Method</h5>
+              <span class="card-text">
+                Connect atleast one account
+              </span>
+            </div>
+            <div class="spacer"></div>
+            <i class="material-icons">
+              arrow_forward
+            </i>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h5> Link a Payment Method</h5>
+              <span class="card-text">
+                Connect atleast one account
+              </span>
+            </div>
+            <div class="spacer"></div>
+            <i class="material-icons">
+              arrow_forward
+            </i>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h5> Set a profile picture</h5>
+              <span class="card-text">
+                Tou can deposit from your bank
+              </span>
+            </div>
+            <div class="spacer"></div>
+            <i class="material-icons">
+              arrow_forward
+            </i>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-links">
+        <h4 class="section-title">
+          Quick Links
+        </h4>
+        <div class="divider"></div>
+        <div class="links">
+          <button mat-button >Create New Product</button>
+          <button mat-button>customer comments</button>
+          <button mat-button>Store settings</button>
+                  
+        </div>
+      </section>
+      <section class="refer-section">
+        <div class="card">
+          <div class="card-content">
+            <h5> Refer friends, Get rewarded</h5>
+            <span class="card-text">
+              You can earn 15,000 membership Reward points for each approved referal -  up to 55,000 ksh reward points for a calendar year
+            </span>
+          </div>
+
+        </div>
+      </section>
+    </aside>
+
+  </section>
+</div>
